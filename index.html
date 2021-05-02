@@ -18,7 +18,7 @@
                 </span>
                 <!-- Backlog Content -->
                 <div id="backlog-content" class="custom-scroll">
-                    <ul class="drag-item-list" id="backlog-list">
+                    <ul class="drag-item-list" id="backlog-list" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(0)">
                         <li class="drag-item">TESTING 1...</li>
                         <li class="drag-item">TESTING 2...</li>
                         <li class="drag-item">TESTING 3...</li>
@@ -46,7 +46,7 @@
                 </span>
                 <!-- Progress Container Content -->
                 <div id="progress Container-content" class="custom-scroll">
-                    <ul class="drag-item-list" id="progress-list">
+                    <ul class="drag-item-list" id="progress-list"ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(1)">
                     </ul>
                 </div>
                 <!-- Add Button Group -->
@@ -71,10 +71,7 @@
                 </span>
                 <!-- Complete Content -->
                 <div id="complete-content"class="custom-scroll">
-                    <ul class="drag-item-list" id="complete-list">
-                        <li class="drag-item">TESTING...</li>
-                        <li class="drag-item">TESTING...</li>
-                        <li class="drag-item">TESTING...</li>
+                    <ul class="drag-item-list" id="complete-list" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(2)">
                     </ul>
                 </div>
                 <!-- Add Button Group -->
@@ -99,11 +96,8 @@
                             </span>
                             <!-- on-hold Content -->
                             <div id="on-hold-content" class="custom-scroll">
-                                <ul class="drag-item-list" id="on-hold-list">
-                                    <li class="drag-item">TESTING...</li>
-                                    <li class="drag-item">TESTING...</li>
-                                    <li class="drag-item">TESTING...</li>
-                                    <li class="drag-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt tempora a amet vitae beatae sit, dicta nostrum quis id, delectus ea quod culpa provident facere cum reiciendis expedita laudantium ad! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis tenetur eveniet facere labore earum facilis ullam eos! Laboriosam non qui, accusantium vel ut praesentium. Repudiandae commodi quia dolores aliquid debitis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste corporis, in eligendi est repudiandae error iusto libero odit sunt cupiditate architecto voluptate pariatur, placeat alias molestiae explicabo voluptatum temporibus quis?</li>
+                                <ul class="drag-item-list" id="on-hold-list" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(3)">
+
                                 </ul>
                             </div>
                             <!-- Add Button Group -->

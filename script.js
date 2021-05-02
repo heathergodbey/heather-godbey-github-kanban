@@ -3,7 +3,7 @@ const saveItemBtns = document.querySelectorAll('.solid');
 const addItemContainers = document.querySelectorAll('.add-container');
 const addItems = document.querySelectorAll('.add-item');
 // Item Lists
-const itemLists = document.querySelectorAll('.drag-item-list');
+const listColumns = document.querySelectorAll('.drag-item-list');
 const backlogList = document.getElementById('backlog-list');
 const progressList = document.getElementById('progress-list');
 const completeList = document.getElementById('complete-list');
@@ -20,6 +20,8 @@ let onHoldListArray = [];
 let listArrays = [];
 
 // Drag Functionality
+let draggedItem;
+let currColumn;
 
 // Get Arrays from localStorage if available, set default values if not
 function getSavedColumns() {
@@ -55,14 +57,12 @@ function updateSavedColumns() {
 
 // Create DOM Elements for each list item
 function createItemEl(columnEl, column, item, index) {
-  // console.log('columnEl:', columnEl);
-  // console.log('column:', column);
-  // console.log('item:', item);
-  // console.log('index:', index);
   // List Item
   const listEl = document.createElement('li');
   listEl.classList.add('drag-item');
   listEl.textContent = item;
+  listEl.draggable = true;
+  listEl.setAttribute('ondragstart', 'drag(event)');
   // Append
   columnEl.appendChild(listEl);
 }
@@ -94,6 +94,34 @@ function updateDOM() {
     createItemEl(onHoldList, 0, onHoldItem, index);
   });
   // Run getSavedColumns only once, Update Local Storage
+}
+
+// When Item Starts Dragging
+function drag(e) {
+  draggedItem = e.target;
+}
+
+//Column Allows for Item to Drop
+function allowDrop(e) {
+  e.preventDefault();
+}
+
+// When Item Enters Column Area
+function dragEnter(column) {
+  listColumns[column].classList.add('over');
+  currColumn = column;
+}
+
+//Dropping Item in Column
+function drop(e) {
+  e.preventDefault();
+  // Remove Background color padding
+  listColumns.forEach((column) => {
+    column.classList.remove('over');
+  });
+  // Add Item to Column
+  const parent = listColumns[currColumn];
+  parent.appendChild(draggedItem);
 }
 
 // On Load
